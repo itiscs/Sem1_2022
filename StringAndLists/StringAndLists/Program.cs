@@ -36,7 +36,7 @@ for(int i=0; i < str.Length; i++)
     Console.WriteLine(str[i]);
 }
 
-var splStr = str.Split(' ');
+var splStr = str.ToLower().Split(' ');
 
 foreach(var word in splStr)
 {
