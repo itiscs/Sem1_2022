@@ -1,10 +1,10 @@
 ﻿using System.Numerics;
 using System.Reflection.PortableExecutable;
 
-void Hello(string s)
+void Hello(ref string s)
 {
     Console.WriteLine(s);
-    //s = ""
+    s = "abc";
 }
 
 int Sum(int x, int y)
@@ -19,12 +19,14 @@ void Swap(ref int x, ref int y)
     y = t;
 }
 
-int ArrSum(int[] mas)
+int ArrSum(ref int[] mas)
 {
     int s = 0;
     mas[1] = 100;
     for (int i = 0; i < mas.Length; i++)
         s += mas[i];
+
+    mas = new int[5] { 1, 1, 1, 1, 1 };
     return s;
 }
 
@@ -61,12 +63,12 @@ using (StreamReader reader = new StreamReader("input.txt"))
     str = reader.ReadToEnd();
     //Console.WriteLine(str);
 
-    int k = 0;
-    foreach(string s in str.Split('\n'))
-    {
-        Console.WriteLine($"{k++} - {s}");
+    //int k = 0;
+    //foreach(string s in str.Split('\n'))
+    //{
+    //    Console.WriteLine($"{k++} - {s}");
 
-    }
+    //}
 
 }
 
@@ -81,12 +83,12 @@ using (StreamReader reader = new StreamReader("inMatr.txt"))
 
     matr = new int[m, n];
 
-    for(int i=0; i<m; i++)
-    {
-        var row = reader.ReadLine().Split(' ');
-        for(int j=0; j < n ; j++)
-            matr[i,j] = int.Parse(row[j]);
-    }
+    //for(int i=0; i<m; i++)
+    //{
+    //    var row = reader.ReadLine().Split(' ');
+    //    for(int j=0; j < n ; j++)
+    //        matr[i,j] = int.Parse(row[j]);
+    //}
 }
 
 
@@ -121,16 +123,63 @@ for (int i = 0; i < matr.GetLength(0); i++)
 
 //Hello("Some text");
 
-//string s = "Text 1";
+//string s1 = "Text 1";
 
-//Hello(s);
+//Hello(ref s1);
 
-//Console.WriteLine(s);
+//Console.WriteLine(s1);
 
 
 //int[] arr = { 1, 2, 3, 4, 5, 6 };
 
-//Console.WriteLine(ArrSum(arr));
+//Console.WriteLine(ArrSum(ref arr));
 
-//foreach(int k in arr)
+//foreach (int k in arr)
 //    Console.WriteLine(k);
+
+
+List<char> lst = new List<char>();
+Dictionary<char, int> symbols = new Dictionary<char, int>();
+
+
+using (StreamReader reader = new StreamReader("text.txt"))
+{
+    var str = reader.ReadToEnd();
+    foreach(char ch in str)
+    {
+        if(Char.IsLetter(ch))
+        {
+            if(!lst.Contains(ch))
+                lst.Add(ch);
+
+            if(!symbols.Keys.Contains(ch))
+            {
+                symbols.Add(ch, 1);
+            }
+            else
+            {
+                //int k = symbols[ch];
+                symbols[ch] += 1;    
+            }
+
+        }
+    }
+}
+
+foreach (char ch in lst)
+    Console.Write(ch);
+
+foreach(char ch in symbols.Keys)
+{
+    Console.WriteLine($"{ch}   -   {symbols[ch]}");
+}
+
+//Console.WriteLine(symbols['x']);
+
+foreach(var k in symbols)
+{
+    Console.WriteLine(k);
+}
+
+
+
