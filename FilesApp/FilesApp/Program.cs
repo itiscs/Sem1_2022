@@ -82,8 +82,8 @@ using (StreamReader reader = new StreamReader("inMatr.txt"))
     int n = int.Parse(mn[1]);
 
     matr = new int[m, n];
-
-    //for(int i=0; i<m; i++)
+    
+        //for(int i=0; i<m; i++)
     //{
     //    var row = reader.ReadLine().Split(' ');
     //    for(int j=0; j < n ; j++)
