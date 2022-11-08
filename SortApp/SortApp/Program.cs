@@ -2,16 +2,91 @@
 int[] arr = GenerateMas(N);
 PrintMas(arr);
 
-BubbleSort(arr);
+PrintPositMass(arr, 0);
 
-PrintMas(arr);
+//BubbleSort(arr);
+
+//PrintMas(arr);
+
+//Console.WriteLine(FindIntRec(arr, -83, 0, N - 1));
+
+//Console.WriteLine(MaxMass(arr, N - 1));
+
+
+
+
+bool FindInt(int[] mas, int x, int a, int b)
+{
+    while(a <= b)
+    {
+        int c = (a + b) / 2;
+        if (mas[c] == x)
+            return true;
+        if (mas[c] < x)
+            a = c + 1;
+        else
+            b = c - 1;
+        Console.WriteLine($"{a}  {b}");
+    }
+    return false;   
+}
+
+bool FindIntRec(int[] mas, int x, int a, int b)
+{
+    int c = (a + b) / 2;
+    if (mas[c] == x)
+        return true;
+    if (a > b)
+        return false;
+
+    if (mas[c] < x)
+       return FindIntRec(mas, x, c + 1, b);
+
+    return FindIntRec(mas, x, a, c - 1);
+
+}
+
+
+int SumMass(int[] arr, int k)
+{
+    if (k == 0)
+        return arr[0];
+    
+    return arr[k] + SumMass(arr, k - 1);
+}
+
+int MaxMass(int[] arr, int k)
+{
+    if (k == 0)
+        return arr[0];
+
+    var oldMax = MaxMass(arr, k);
+    return (oldMax < arr[k]) ? arr[k] : oldMax;
+}
+
+
+
+void PrintPositMass(int[] arr, int k)
+{
+    if (k >= arr.Length)
+        return;
+
+    PrintPositMass(arr, k + 1);
+
+    if (arr[k] > 0)
+        Console.Write($"{arr[k]} ");
+}
+
+
+
+
 
 
 int[] GenerateMas(int n)
 {
     Random r = new Random();
     int[] mas = new int[n];
-    for(int i = 0; i < n; i++)
+    for (int i = 0; i < n; i++)
         mas[i] = r.Next(-100,100);
 
     return mas; 
@@ -23,6 +98,17 @@ void PrintMas(int[] mas)
         Console.Write($"{mas[i]} ");
     Console.WriteLine();
 }
+
+
+int GetMaxInd(int[] mas, int n)
+{
+    int iMax = 0;
+    for(int i = 1; i < n; i++)
+        if (mas[i] > mas[iMax])
+            iMax = i;
+    return iMax;
+}
+
 
 void BubbleSort(int[] mas)
 {
@@ -40,7 +126,7 @@ void BubbleSort(int[] mas)
     {
         fl = false;
         for (int i = 0; i < n - 1; i++)
-            if (mas[i] < mas[i + 1])
+            if (mas[i] > mas[i + 1])
             {
                 var t = mas[i];
                 mas[i] = mas[i + 1];
@@ -48,6 +134,4 @@ void BubbleSort(int[] mas)
                 fl = true;
             }
     }
-    
-
 }
