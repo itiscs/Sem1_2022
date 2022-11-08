@@ -2,11 +2,13 @@
 int[] arr = GenerateMas(N);
 PrintMas(arr);
 
-PrintPositMass(arr, 0);
+//PrintPositMass(arr, 0);
+
+MergeSort(arr, 0, arr.Length - 1);
 
 //BubbleSort(arr);
 
-//PrintMas(arr);
+PrintMas(arr);
 
 //Console.WriteLine(FindIntRec(arr, -83, 0, N - 1));
 
@@ -135,3 +137,36 @@ void BubbleSort(int[] mas)
             }
     }
 }
+
+
+void MergeSort(int[] arr, int a, int b)
+{
+    Console.WriteLine($"({a},{b})");
+    if (b - a < 1)
+        return;
+
+    int c = (a + b) / 2;
+
+    MergeSort(arr, a, c);
+    MergeSort(arr, c + 1, b);
+
+    int[] mergeArr = new int[b - a + 1];
+
+    int i = a, j = c + 1;
+    for(int k = 0; k < mergeArr.Length; k++)
+    {
+        if (i > c)            //закончился первый массив
+            mergeArr[k] = arr[j++];
+        else if (j > b)       //закончился второй массив
+            mergeArr[k] = arr[i++];
+        else if (arr[i] < arr[j])
+            mergeArr[k] = arr[i++];
+        else
+            mergeArr[k] = arr[j++];
+    }
+
+    i = a;
+    for (int k = 0; k < mergeArr.Length; k++)
+        arr[i++] = mergeArr[k];
+}
+
