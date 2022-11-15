@@ -12,29 +12,35 @@ namespace FractionApp
             Fraction f2 = new Fraction(32);
             Fraction f3 = new Fraction();
 
-            f1.SetNum(3);
+            f1.Numerator = 3;
             //f1.SetDenom(2);
+
 
             Fraction.StaticMethod();
             
             
-            f1.Print();
-             
+            //f1.Print();
+            Console.WriteLine(f1);
+
+
             //f2.SetNum(2);
-            f2.SetDenom(1);
+            f2.Denominator = 1;
 
-            Console.WriteLine($"Fraction - {f2.GetNum()}/{f2.GetDen()}");
+            //Console.WriteLine($"Fraction - {f2.Numerator}/{f2.Denominator}");
+            Console.WriteLine($"Fraction - {f2}");
 
-            f3.Print();
 
-
+            //f3.Print();
+            Console.WriteLine(f3);
 
             f1.Add(f2);
-            f1.Print();
+            //f1.Print();
+            Console.WriteLine(f1);
 
             f3.Add(f3, f2);
             //f3 = f3 + f2;
-            f3.Print();
+            //f3.Print();
+            Console.WriteLine(f3);
 
             //}
             //catch(Exception ex)

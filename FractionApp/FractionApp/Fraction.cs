@@ -11,21 +11,44 @@ namespace FractionApp
         private int numerator;
         private int denominator;
 
-        public Fraction(int n, int d)
+        public int Numerator  // свойство
         {
-            if (d == 0)
-                throw new ArgumentException("Нельзя делить на ноль!");
-
-            numerator = n;
-            denominator = d;
+            get
+            {
+                return numerator;
+            }
+            set
+            {
+                numerator = value;
+            }
         }
 
-        public Fraction(int n):this(n, 1)
+        public int Denominator
+        {
+            get { return denominator; }
+            set
+            {
+                if (value <= 0)
+                    throw new ArgumentException("demominator must by positive");
+                denominator = value;
+            }
+        }
+
+
+
+
+        public Fraction(int n, int d)
+        {
+            Numerator = n;
+            Denominator = d;
+        }
+
+        public Fraction(int n) : this(n, 1)
         {
             //numerator = n;
             //denominator = 1;
         }
-        public Fraction():this(0, 1)
+        public Fraction() : this(0, 1)
         {
             //numerator = 0;
             //denominator = 1;
@@ -41,31 +64,39 @@ namespace FractionApp
         {
             Console.WriteLine("Static method");
         }
-        public void SetNum(int n) 
-        {
-            numerator = n;  
-        }
+        //public void SetNum(int n) 
+        //{
+        //    numerator = n;  
+        //}
 
-        public int GetNum()
-        {
-            return numerator;
-        }
+        //public int GetNum()
+        //{
+        //    return numerator;
+        //}
 
-        public void SetDenom(int d)
-        {
-            if (d == 0)
-                throw new ArgumentException("Нельзя делить на ноль!");
-            denominator = d;
-        }
+        //public void SetDenom(int d)
+        //{
+        //    if (d == 0)
+        //        throw new ArgumentException("Нельзя делить на ноль!");
+        //    denominator = d;
+        //}
 
-        public int GetDen()
-        {
-            return denominator;
-        }
+        //public int GetDen()
+        //{
+        //    return denominator;
+        //}
 
         public void Print()
         {
-            Console.WriteLine($"{numerator}/{denominator}");
+            Console.WriteLine($"{Numerator}/{Denominator}");
+        }
+
+        public override string ToString()
+        {
+            if (Denominator == 1)
+                return $"{Numerator}";
+
+            return $"{Numerator}/{Denominator}";
         }
 
 
