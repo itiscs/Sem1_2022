@@ -8,12 +8,24 @@ namespace FractionApp
         {
             //try
             //{
-            Fraction f1 = new Fraction(1,2);
-            Fraction f2 = new Fraction(32);
-            Fraction f3 = new Fraction();
+            Fraction f1 = new Fraction(4, 11);
+            Fraction f2 = new Fraction(2, 5);
+            Fraction f3 = new Fraction(-5,13);
+
+
+            Console.WriteLine(f1 > f2);
+
+            Console.WriteLine(f1 < f2);
+
 
             f1.Numerator = 3;
             //f1.SetDenom(2);
+
+
+            Console.WriteLine($"++f1 - {++f1}");
+
+            Console.WriteLine($"{f2} + 5 = {f2 + 5}  = {5 + f2}");
+
 
 
             Fraction.StaticMethod();
@@ -31,16 +43,28 @@ namespace FractionApp
 
 
             //f3.Print();
-            Console.WriteLine(f3);
+            Console.WriteLine($"f3 = {f3}");
 
             f1.Add(f2);
             //f1.Print();
-            Console.WriteLine(f1);
+            Console.WriteLine($"f1 - {f1}");
 
-            f3.Add(f3, f2);
+            f3.Add(f1, f2);
             //f3 = f3 + f2;
             //f3.Print();
-            Console.WriteLine(f3);
+            Console.WriteLine($"f3 - {f3}");
+
+
+            Console.WriteLine("*******************************");
+            Console.WriteLine(f1 + f2);
+            Console.WriteLine(f2 + f3);
+
+
+
+            
+
+
+
 
             //}
             //catch(Exception ex)

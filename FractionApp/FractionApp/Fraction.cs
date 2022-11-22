@@ -34,13 +34,11 @@ namespace FractionApp
             }
         }
 
-
-
-
         public Fraction(int n, int d)
         {
             Numerator = n;
             Denominator = d;
+            Sokr();
         }
 
         public Fraction(int n) : this(n, 1)
@@ -99,7 +97,7 @@ namespace FractionApp
             return $"{Numerator}/{Denominator}";
         }
 
-
+        
         public void Sokr()
         {
             //ToDo
@@ -122,7 +120,45 @@ namespace FractionApp
             Sokr();
         }
 
+        //  f3 = f1 + f2
 
+        public static Fraction operator+(Fraction f1, Fraction f2)
+        {
+            var n = f1.Numerator * f2.Denominator +
+                f1.Denominator * f2.Numerator;
+            var d = f1.Denominator * f2.Denominator;
+            return new Fraction(n, d);
+        }
+
+        public static Fraction operator +(Fraction f1, int a)
+        {
+            var n = f1.Numerator + a * f1.Denominator ;
+            var d = f1.Denominator;
+            return new Fraction(n, d);
+        }
+        public static Fraction operator +(int a, Fraction f1)
+        {
+            return f1 + a;
+        }
+
+        public static Fraction operator++(Fraction f)
+        {
+            var n = f.Numerator  + f.Denominator;
+            var d = f.Denominator;
+            return new Fraction(n, d);
+        }
+
+        public static bool operator>(Fraction f1, Fraction f2)
+        {
+            return f1.Numerator * f2.Denominator >
+                             f1.Denominator * f2.Numerator;
+        }
+
+        public static bool operator <(Fraction f1, Fraction f2)
+        {
+            return f1.Numerator * f2.Denominator <
+                             f1.Denominator * f2.Numerator;
+        }
 
 
 
