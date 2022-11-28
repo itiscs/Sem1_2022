@@ -11,7 +11,8 @@ namespace FractionApp
             Fraction f1 = new Fraction(4, 11);
             Fraction f2 = new Fraction(2, 5);
             Fraction f3 = new Fraction(-5,13);
-
+            Fraction f4 = new Fraction(f3);
+            Fraction f5 = f3;
 
             Console.WriteLine(f1 > f2);
 
@@ -58,12 +59,6 @@ namespace FractionApp
             Console.WriteLine("*******************************");
             Console.WriteLine(f1 + f2);
             Console.WriteLine(f2 + f3);
-
-
-
-            
-
-
 
 
             //}

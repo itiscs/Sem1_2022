@@ -41,6 +41,10 @@ namespace FractionApp
             Sokr();
         }
 
+        public Fraction(Fraction f):this(f.Numerator,f.Denominator)
+        {
+        }
+
         public Fraction(int n) : this(n, 1)
         {
             //numerator = n;
@@ -159,8 +163,6 @@ namespace FractionApp
             return f1.Numerator * f2.Denominator <
                              f1.Denominator * f2.Numerator;
         }
-
-
 
 
     }
