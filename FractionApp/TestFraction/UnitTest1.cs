@@ -80,7 +80,7 @@ namespace TestFraction
         [TestCase(1, 2)]
         [TestCase(2, 4)]
         [TestCase(13, 22)]
-        [TestCase(1, 0)]
+     //  [TestCase(1, 0)]
         public void TestToString(int a, int b)
         {
             //Arrange
