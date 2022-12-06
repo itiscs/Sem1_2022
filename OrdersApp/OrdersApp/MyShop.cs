@@ -134,15 +134,10 @@ namespace OrdersApp
                 if (p.ProductId == prodId)
                     prod = p; ;
             }
-            Orders.Add(new Order()
-            {
-                OrderId = Order.CurId++,
-                Customer = cust,
-                Product = prod,
-                Count = count,
-                OrderDate = DateTime.Now,
-                Amount = count * prod.Price
-            });
+            var ord = new Order(cust, prod, count);
+            Orders.Add(ord);
+            Console.WriteLine("Добавлен заказ:");
+            Console.WriteLine(ord);
         }
 
 

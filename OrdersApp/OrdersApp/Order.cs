@@ -14,8 +14,17 @@ namespace OrdersApp
         public decimal Amount { get; set; }
         public  Customer Customer{ get; set; }
         public Product Product { get; set; }
+        private static int CurId { get; set; } = 0;
 
-        public static int CurId { get; set; } = 0;
+        public Order(Customer cust, Product prod, int count)
+        {
+            OrderId = CurId++;
+            Customer = cust;
+            Product = prod;
+            Count = count;
+            OrderDate = DateTime.Now;
+            Amount = count * prod.Price;
+        }
 
         public override string ToString()
         {
