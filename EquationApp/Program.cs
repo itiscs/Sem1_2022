@@ -1,7 +1,9 @@
 ﻿using EquationApp;
-using System.Net.Quic;
 
-Equation eq = Equation.CreateEq(1, 10,-2);
+//Equation eq = Equation.CreateEq(1, 10,-2);
+
+Equation eq = new Equation();
+
 
 if (eq is Equation2)
 {

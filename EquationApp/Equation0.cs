@@ -16,7 +16,7 @@ namespace EquationApp
         }
         public override void Solve()
         {
-            if(_c == 0)
+            if (_c == 0)
                 countRes = int.MaxValue;
             else
                 countRes = 0;
@@ -24,7 +24,7 @@ namespace EquationApp
 
         public override void PrintResult()
         {
-            if(countRes > 0)
+            if (countRes > 0)
             {
                 Console.WriteLine("Ответ - вся числовая ось");
             }

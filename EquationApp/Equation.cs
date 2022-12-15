@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace EquationApp
 {
-    public class Equation
+    public abstract class Equation
     {
         protected int countRes;
 
@@ -14,10 +14,7 @@ namespace EquationApp
         {
             Console.WriteLine("Решаем уравнение!");
         }
-        public virtual void PrintResult()
-        {
-            Console.WriteLine("Ответ!");
-        }
+        public abstract void PrintResult();
 
         public static Equation CreateEq(params int[] coefs)
         {

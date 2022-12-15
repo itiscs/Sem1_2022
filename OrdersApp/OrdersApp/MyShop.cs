@@ -77,13 +77,15 @@ namespace OrdersApp
         public void PrintProducts()
         {
             Console.WriteLine("Список товаров;");
-            foreach(var prod in Products)
+            Products.Sort();
+            foreach (var prod in Products)
             {
                 Console.WriteLine(prod);
             }
         }
         public void PrintCustomers()
         {
+            Customers.Sort();
             Console.WriteLine("Список заказчиков;");
             foreach (var cust in Customers)
             {
