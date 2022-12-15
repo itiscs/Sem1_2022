@@ -85,7 +85,7 @@ namespace OrdersApp
         }
         public void PrintCustomers()
         {
-            Customers.Sort();
+            //Customers.Sort();
             Console.WriteLine("Список заказчиков;");
             foreach (var cust in Customers)
             {
